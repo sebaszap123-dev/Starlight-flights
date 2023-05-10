@@ -1,13 +1,5 @@
-<script setup lang="ts">
-import { onMounted } from "vue"
+<script setup>
 import TheWelcome from '../components/TheWelcome.vue'
-import { apiStarlight } from "@/providers/api"
-
-const { searchFlights } = apiStarlight();
-
-onMounted(() => {
-  searchFlights()
-})
 </script>
 
 <template>

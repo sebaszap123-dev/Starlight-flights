@@ -17,21 +17,5 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-}
-
-const db = firebase.firestore();
-const auth = firebase.auth();
-const marcaTiempo = firebase.firestore.FieldValue.serverTimestamp;
-
-firebase.getCurrentUser = () => {
-    return new Promise((resolve, reject) => {
-        const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-            unsubscribe();
-            resolve(user);
-        }, reject);
-    });
-};
-
-export { db, auth, firebase, marcaTiempo };
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
