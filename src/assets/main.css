@@ -1,4 +1,5 @@
 @import './base.css';
+@import './../node_modules/bulma/css/bulma.css';
 
 #app {
   max-width: 1280px;
