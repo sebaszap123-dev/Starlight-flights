@@ -1,0 +1,422 @@
+[
+    {
+        "id": 1,
+        "name": "Hotel Sunshine",
+        "ubication": "Dubai, United Arab Emirates",
+        "puntuation": 9.2,
+        "cancellation": {
+            "hasCancellation": true,
+            "type": "free",
+            "price": 0
+        },
+        "price": 120,
+        "hasWifi": true,
+        "image": 758
+    },
+    {
+        "id": 2,
+        "name": "Grand Hotel Lighthouse",
+        "ubication": "Barcelona, Spain",
+        "puntuation": 8.5,
+        "cancellation": {
+            "hasCancellation": true,
+            "type": "flexible",
+            "price": 10
+        },
+        "price": 95,
+        "hasWifi": true,
+        "image": 675
+    },
+    {
+        "id": 3,
+        "name": "The Royal Oasis",
+        "ubication": "Paris, France",
+        "puntuation": 7.9,
+        "cancellation": {
+            "hasCancellation": false,
+            "type": null,
+            "price": null
+        },
+        "price": 150,
+        "hasWifi": true,
+        "image": 422
+    },
+    {
+        "id": 4,
+        "name": "Mountain View Resort",
+        "ubication": "Aspen, Colorado, USA",
+        "puntuation": 8.3,
+        "cancellation": {
+            "hasCancellation": true,
+            "type": "free",
+            "price": 0
+        },
+        "price": 220,
+        "hasWifi": true,
+        "image": 982
+    },
+    {
+        "id": 5,
+        "name": "Beachside Paradise Hotel",
+        "ubication": "Cancun, Mexico",
+        "puntuation": 9.0,
+        "cancellation": {
+            "hasCancellation": true,
+            "type": "flexible",
+            "price": 20
+        },
+        "price": 180,
+        "hasWifi": true,
+        "image": 564
+    },
+    {
+        "id": 6,
+        "name": "City Center Inn",
+        "ubication": "New York City, USA",
+        "puntuation": 7.6,
+        "cancellation": {
+            "hasCancellation": true,
+            "type": "standard",
+            "price": 50
+        },
+        "price": 160,
+        "hasWifi": true,
+        "image": 324
+    },
+    {
+        "id": 7,
+        "name": "Seaside Resort & Spa",
+        "ubication": "Bali, Indonesia",
+        "puntuation": 8.7,
+        "cancellation": {
+            "hasCancellation": true,
+            "type": "free",
+            "price": 0
+        },
+        "price": 200,
+        "hasWifi": true,
+        "image": 779
+    },
+    {
+        "id": 8,
+        "name": "Historic Plaza Hotel",
+        "ubication": "Santa Fe, New Mexico, USA",
+        "puntuation": 8.1,
+        "cancellation": {
+            "hasCancellation": true,
+            "type": "flexible",
+            "price": 15
+        },
+        "price": 130,
+        "hasWifi": true,
+        "image": 567
+    },
+    {
+        "id": 9,
+        "name": "Luxury Tower Suites",
+        "ubication": "Tokyo, Japan",
+        "puntuation": 9.5,
+        "cancellation": {
+            "hasCancellation": true,
+            "type": "free",
+            "price": 0
+        },
+        "price": 250,
+        "hasWifi": true,
+        "image": 212
+    },
+    {
+        "id": 10,
+        "name": "Mountain Retreat Lodge",
+        "ubication": "Banff, Canada",
+        "puntuation": 8.9,
+        "cancellation": {
+            "hasCancellation": true,
+            "type": "standard",
+            "price": 30
+        },
+        "price": 180,
+        "hasWifi": true,
+        "image": 821
+    },
+    {
+        "id": 11,
+        "name": "Hotel Fiesta Americana",
+        "ubication": "Cancún, Quintana Roo",
+        "puntuation": 8.7,
+        "cancellation": {
+            "hasCancellation": true,
+            "type": "free",
+            "price": 0
+        },
+        "price": 180,
+        "hasWifi": true,
+        "image": 710
+    },
+    {
+        "id": 12,
+        "name": "Hotel Condesa Americana",
+        "ubication": "Mérida, Yucatán",
+        "puntuation": 8.4,
+        "cancellation": {
+            "hasCancellation": true,
+            "type": "flexible",
+            "price": 15
+        },
+        "price": 120,
+        "hasWifi": true,
+        "image": 520
+    },
+    {
+        "id": 13,
+        "name": "Hotel Boutique Rosales",
+        "ubication": "San Miguel de Allende, Guanajuato",
+        "puntuation": 9.1,
+        "cancellation": {
+            "hasCancellation": true,
+            "type": "standard",
+            "price": 30
+        },
+        "price": 200,
+        "hasWifi": true,
+        "image": 340
+    },
+    {
+        "id": 14,
+        "name": "Hotel Mar Azul",
+        "ubication": "Puerto Vallarta, Jalisco",
+        "puntuation": 7.9,
+        "cancellation": {
+            "hasCancellation": false,
+            "type": null,
+            "price": null
+        },
+        "price": 150,
+        "hasWifi": true,
+        "image": 890
+    },
+    {
+        "id": 15,
+        "name": "Hotel Playa Paraíso",
+        "ubication": "Cabo San Lucas, Baja California Sur",
+        "puntuation": 8.6,
+        "cancellation": {
+            "hasCancellation": true,
+            "type": "flexible",
+            "price": 20
+        },
+        "price": 280,
+        "hasWifi": true,
+        "image": 410
+    },
+    {
+        "id": 16,
+        "name": "Hotel Zócalo Central",
+        "ubication": "Ciudad de México, Distrito Federal",
+        "puntuation": 8.8,
+        "cancellation": {
+            "hasCancellation": true,
+            "type": "free",
+            "price": 0
+        },
+        "price": 180,
+        "hasWifi": true,
+        "image": 640
+    },
+    {
+        "id": 17,
+        "name": "Hotel Hacienda Mérida",
+        "ubication": "Mérida, Yucatán",
+        "puntuation": 9.3,
+        "cancellation": {
+            "hasCancellation": true,
+            "type": "free",
+            "price": 0
+        },
+        "price": 220,
+        "hasWifi": true,
+        "image": 720
+    },
+    {
+        "id": 18,
+        "name": "Hotel Quinta Real",
+        "ubication": "Guadalajara, Jalisco",
+        "puntuation": 8.9,
+        "cancellation": {
+            "hasCancellation": true,
+            "type": "standard",
+            "price": 25
+        },
+        "price": 190,
+        "hasWifi": true,
+        "image": 920
+    },
+    {
+        "id": 19,
+        "name": "Hotel Krystal",
+        "ubication": "Puerto Vallarta, Jalisco",
+        "puntuation": 7.5,
+        "cancellation": {
+            "hasCancellation": true,
+            "type": "flexible",
+            "price": 15
+        },
+        "price": 150,
+        "hasWifi": true,
+        "image": 530
+    },
+    {
+        "id": 20,
+        "name": "Hotel Catedral",
+        "ubication": "Oaxaca, Oaxaca",
+        "puntuation": 8.7,
+        "cancellation": {
+            "hasCancellation": true,
+            "type": "free",
+            "price": 0
+        },
+        "price": 170,
+        "hasWifi": true,
+        "image": 610
+    },
+    {
+        "id": 21,
+        "name": "Hotel Miramar",
+        "ubication": "Rio de Janeiro, Brasil",
+        "puntuation": 8.9,
+        "cancellation": {
+            "hasCancellation": true,
+            "type": "free",
+            "price": 0
+        },
+        "price": 180,
+        "hasWifi": true,
+        "image": 780
+    },
+    {
+        "id": 22,
+        "name": "Hotel Colonial",
+        "ubication": "Cartagena, Colombia",
+        "puntuation": 9.2,
+        "cancellation": {
+            "hasCancellation": true,
+            "type": "flexible",
+            "price": 10
+        },
+        "price": 150,
+        "hasWifi": true,
+        "image": 520
+    },
+    {
+        "id": 23,
+        "name": "Hotel Buenos Aires",
+        "ubication": "Buenos Aires, Argentina",
+        "puntuation": 8.7,
+        "cancellation": {
+            "hasCancellation": true,
+            "type": "standard",
+            "price": 20
+        },
+        "price": 200,
+        "hasWifi": true,
+        "image": 430
+    },
+    {
+        "id": 24,
+        "name": "Hotel Costa del Sol",
+        "ubication": "Lima, Perú",
+        "puntuation": 8.4,
+        "cancellation": {
+            "hasCancellation": false,
+            "type": null,
+            "price": null
+        },
+        "price": 130,
+        "hasWifi": true,
+        "image": 620
+    },
+    {
+        "id": 25,
+        "name": "Hotel Colonial Antigua",
+        "ubication": "Antigua, Guatemala",
+        "puntuation": 9.1,
+        "cancellation": {
+            "hasCancellation": true,
+            "type": "flexible",
+            "price": 15
+        },
+        "price": 120,
+        "hasWifi": true,
+        "image": 560
+    },
+    {
+        "id": 26,
+        "name": "Hotel Miraflores",
+        "ubication": "Lima, Perú",
+        "puntuation": 8.6,
+        "cancellation": {
+            "hasCancellation": true,
+            "type": "free",
+            "price": 0
+        },
+        "price": 180,
+        "hasWifi": true,
+        "image": 670
+    },
+    {
+        "id": 27,
+        "name": "Hotel Costa del Sol",
+        "ubication": "San José, Costa Rica",
+        "puntuation": 8.9,
+        "cancellation": {
+            "hasCancellation": true,
+            "type": "standard",
+            "price": 25
+        },
+        "price": 190,
+        "hasWifi": true,
+        "image": 420
+    },
+    {
+        "id": 28,
+        "name": "Hotel Providencia",
+        "ubication": "Santiago, Chile",
+        "puntuation": 8.5,
+        "cancellation": {
+            "hasCancellation": true,
+            "type": "flexible",
+            "price": 10
+        },
+        "price": 150,
+        "hasWifi": true,
+        "image": 380
+    },
+    {
+        "id": 29,
+        "name": "Hotel Copacabana",
+        "ubication": "Rio de Janeiro, Brasil",
+        "puntuation": 7.8,
+        "cancellation": {
+            "hasCancellation": false,
+            "type": null,
+            "price": null
+        },
+        "price": 170,
+        "hasWifi": true,
+        "image": 710
+    },
+    {
+        "id": 30,
+        "name": "Hotel Costa Azul",
+        "ubication": "Cancún, México",
+        "puntuation": 8.7,
+        "cancellation": {
+            "hasCancellation": true,
+            "type": "free",
+            "price": 0
+        },
+        "price": 180,
+        "hasWifi": true,
+        "image": 540
+    }
+]
