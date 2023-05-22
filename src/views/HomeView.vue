@@ -1,137 +1,107 @@
 <template>
-  <div class="d-flex justify-content-center align-items-center vh-100 bg-dark">
-    <div class="card" style="width: 25rem;">
-      <div class="card-header">
-        Iniciar sesión
-      </div>
-      <div class="card-body">
-        <form @submit.prevent="sendEmail">
-          <div class="mb-3">
-            <label for="email" class="form-label">Correo electrónico</label>
-            <input type="email" class="form-control" id="email" v-model="email" placeholder="example@gmail.com" required>
-            <!-- <div v-if="!isValidEmail" class="text-danger">Correo electrónico no válido. Por favor, revisa el formato
-              "example@example.com".
-            </div> -->
-          </div>
-          <button type="submit" class="btn btn-primary">Iniciar sesión</button>
-          <!-- <div class="mb-3">
-            <label for="password" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="password" v-model="password"
-              :class="{ 'is-invalid': !isValidPassword }" required>
-            <div v-if="!isValidPassword" class="invalid-feedback">La contraseña debe contener al menos una letra mayúscula
-              y un número. No se permiten símbolos</div>
-          </div>
-          <div class="mb-3">
-            <label for="confirmPassword" class="form-label">Confirmar contraseña</label>
-            <input type="password" class="form-control" id="confirmPassword" v-model="confirmPassword"
-              :class="{ 'is-invalid': !isConfirmedPassword }" required>
-            <div v-if="!isConfirmedPassword" class="invalid-feedback">Las contraseñas no coinciden</div>
-          </div>
-          <button type="submit" class="btn btn-primary">Iniciar sesión</button>
-          <br><br>
-          <a href="#">¿No tienes cuenta? Crea una</a> -->
-        </form>
-        <hr class="my-4">
-        <div class="text-center">
-          <p>¿No tienes una cuenta? Regístrate con:</p>
-          <button type="button" class="btn btn-outline-primary btn-lg me-3" @click="crearCuentaGoogle">
-            <i class="bi bi-google"></i>
-          </button>
-          <button type="button" class="btn btn-outline-primary btn-lg">
-            <i class="bi bi-envelope"></i>
-          </button>
+    <div>
+        <div class="container">
+            <h1>Encuentra tu próxima estancia.</h1>
+            <h2>Busca ofertas en hoteles, casas y mucho más...</h2>
+            <AccomodationCard></AccomodationCard>
+            <FlightsCard></FlightsCard>
+            <div id="card-list" class="row" style="margin-top: 20px;">
+
+            </div>
+            <div id="loading" class="text-center" style="display: none;">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </template>
 
 <script setup>
-import { ref } from "vue"
-import { sendSignInLinkToEmail } from "firebase/auth";
-import { auth } from "../firebase"
-const email = ref('');
+import AccomodationCard from "../components/AccomodationCard.vue"
+import FlightsCard from "../components/FlightsCard.vue"
+import { onMounted } from 'vue';
+import { ref, query, limitToFirst } from "firebase/database";
+import { database } from "../firebase"
 
-const actionCodeSettings = {
-  // URL you want to redirect back to. The domain (www.example.com) for this
-  // URL must be in the authorized domains list in the Firebase Console.
-  url: 'http://localhost:5173/about',
-  // This must be true.
-  handleCodeInApp: true,
-};
-const sendEmail = () => {
-  sendSignInLinkToEmail(auth, email.value, actionCodeSettings)
-    .then(() => {
-      // The link was successfully sent. Inform the user.
-      // Save the email locally so you don't need to ask the user for it again
-      // if they open the link on the same device.
-      console.log(email.value);
-      window.localStorage.setItem('emailForSignIn', email.value);
-      // ...
-    })
-    .catch((error) => {
-      console.log(error);
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // ...
-    });
+// Variable para almacenar el número de página
+let page = 1;
+// Función para cargar más tarjetas
+function loadMoreCards() {
+    // Mostrar el spinner de carga
+    document.getElementById('loading').style.display = 'block';
+
+    // Simular una llamada AJAX para obtener los datos de las tarjetas
+    // Aquí deberías realizar una llamada real a tu servidor
+    setTimeout(function () {
+        // Obtener los datos de las tarjetas (por ejemplo, desde una API)
+        const cardsData = [
+            { title: 'Card 1', content: 'Lorem ipsum dolor sit amet' },
+            { title: 'Card 2', content: 'Consectetur adipiscing elit' },
+            { title: 'Card 2', content: 'Consectetur adipiscing elit' },
+            { title: 'Card 2', content: 'Consectetur adipiscing elit' },
+            { title: 'Card 2', content: 'Consectetur adipiscing elit' },
+            { title: 'Card 2', content: 'Consectetur adipiscing elit' },
+            { title: 'Card 2', content: 'Consectetur adipiscing elit' },
+            { title: 'Card 2', content: 'Consectetur adipiscing elit' },
+            { title: 'Card 3', content: 'Sed do eiusmod tempor incididunt' }
+            // Agrega más objetos de tarjeta según sea necesario
+        ];
+
+        // Crear las tarjetas HTML utilizando los datos obtenidos
+        const cardList = document.getElementById('card-list');
+        cardsData.forEach(function (card) {
+            //             const cardHTML = `
+            //         <div class="col-md-12">
+            //             <div class="card mb-3" style="max-width: 540px;">
+            //   <div class="row g-0">
+            //     <div class="col-md-4">
+            //           <img src="..." class="img-fluid rounded-start" alt="...">
+            //         </div>
+            //         <div class="col-md-8">
+            //             <div class="card-body">
+            //                 <h5 class="card-title">${card.title}</h5>
+            //                 <p class="card-text">${card.content}</p>
+            //                 <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+            //             </div>
+            //             </div>
+            //         </div>
+            //     </div>
+            //         </div>
+            //       `;
+            // cardList.innerHTML += cardHTML;
+        });
+
+        // Ocultar el spinner de carga
+        document.getElementById('loading').style.display = 'none';
+
+        // Incrementar el número de página
+        page++;
+    }, 1000); // Simular un retraso de 1 segundo para la carga de datos
 }
+
+// Función para detectar el desplazamiento de la página y cargar más tarjetas cuando sea necesario
+function checkScroll() {
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop + windowHeight >= documentHeight) {
+        loadMoreCards();
+    }
+}
+
+// Evento de desplazamiento de la página
+window.addEventListener('scroll', checkScroll);
+
+onMounted(() => {
+    // Cargar las primeras tarjetas al cargar la página
+
+    const dbRef = ref(database);
+    const recentPostsRef = query(ref(dbRef, 'flights'), limitToFirst(100));
+    console.log(recentPostsRef)
+    loadMoreCards();
+})
+
 </script>
 
-<!-- <script>
-export default {
-  data() {
-    return {
-      email: '',
-      password: '',
-      confirmPassword: '',
-    }
-  },
-  computed: {
-    isValidEmail() {
-      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-      if (this.email.length === 0) {
-        return true
-      } else {
-        return regex.test(this.email)
-      }
-    },
-    isValidPassword() {
-      const regex = /^(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/
-      if (this.password.length === 0) {
-        return true
-      } else {
-        return regex.test(this.password)
-      }
-    },
-    isConfirmedPassword() {
-      if (this.password.length === 0 && this.confirmPassword.length === 0) {
-        return true
-      } else {
-        return this.password == this.confirmPassword
-      }
-    }
-  },
-  methods: {
-    handleSubmit() {
-      console.log("hi")
-      if (!this.isValidEmail || this.email.length === 0) {
-        alert('Invalid email address')
-        return
-      }
-      if (!this.isValidPassword || this.password.length === 0) {
-        alert('Password must contain at least one uppercase letter and one number')
-        return
-      }
-      // perform login logic here
-    }
-  }
-}
-</script> -->
-
-<style scoped>
-.card {
-  background-color: #CE6A85;
-  color: #fff;
-}
-</style>
+<style lang="css" scoped></style>
