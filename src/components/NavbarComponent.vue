@@ -9,21 +9,26 @@
             <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
                 <ul class="navbar-nav">
                     <a class="navbar-brand" href="#">
-                        <img src="../assets/logo.svg" alt="" width="30" height="24">
+                        <!-- <img src="../assets/logo.svg" alt="" width="30" height="24"> -->
                     </a>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#"><i class="fas fa-bed"></i> Dormir</a>
+                        <RouterLink class="nav-link" to="/" style="text-decoration: none;"><i class="fas fa-bed"></i> Dormir
+                        </RouterLink>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-plane"></i> Vuelos</a>
+                        <RouterLink class="nav-link" to="/flights" style="text-decoration: none;"><i
+                                class="fas fa-plane"></i>
+                            Vuelos
+                        </RouterLink>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-user"></i> Iniciar sesión</a>
-                        <!-- <a class="nav-link " href="#"><i class="fa-solid fa-user">Iniciar sesión</i></a> -->
+                        <RouterLink class="nav-link" to="/login" style="text-decoration: none;"><i class="fas fa-user"></i>
+                            Iniciar sesión
+                        </RouterLink>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Haz tu cuenta</a>
-                        <!-- <a class="nav-link " href="#"><i class="fa-solid fa-user">Iniciar sesión</i></a> -->
+                        <RouterLink class="nav-link" to="/" style="text-decoration: none;">Haz tu cuenta
+                        </RouterLink>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown08" data-bs-toggle="dropdown"
@@ -42,12 +47,18 @@
   
   
 <script setup>
-
+import { RouterLink } from "vue-router"
 </script>
 
 <style scoped>
 nav {
     margin-bottom: 50px;
+}
+
+.nav-link {
+    border: white 1px solid !important;
+    border-radius: 30px !important;
+    margin: 5px;
 }
 
 .bg-dark {

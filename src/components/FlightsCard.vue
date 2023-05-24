@@ -6,7 +6,8 @@
                     <div class="row align-items-center">
                         <div class="col-2">
                             <div class="image-container">
-                                <img src="luis.jpeg" alt="Logo" style="width: 40px; height: 40px;">
+                                <img src="https://c4.wallpaperflare.com/wallpaper/142/751/831/landscape-anime-digital-art-fantasy-art-wallpaper-preview.jpg"
+                                    alt="Logo" style="width: 40px; height: 40px;">
                             </div>
                         </div>
                         <div class="col-4">
@@ -25,7 +26,8 @@
                     <div class="row align-items-center">
                         <div class="col-2">
                             <div class="image-container">
-                                <img src="luis.jpeg" alt="Logo" style="width: 40px; height: 40px;">
+                                <img src="https://c4.wallpaperflare.com/wallpaper/295/163/719/anime-anime-boys-picture-in-picture-kimetsu-no-yaiba-kamado-tanjir%C5%8D-hd-wallpaper-preview.jpg"
+                                    alt="Logo" style="width: 40px; height: 40px;">
                             </div>
                         </div>
                         <div class="col-4">
