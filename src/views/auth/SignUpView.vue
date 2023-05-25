@@ -1,14 +1,9 @@
 <template>
-    <div class="container">
+    <div class="container d-flex justify-content-center align-items-center">
         <div class="card">
             <div class="card-body">
-                <div class="text-center mb-3">
-                    <div class="circle">
-                        <img src="https://example.com/logo-google.png" alt="Google Logo">
-                    </div>
-                </div>
-                <h5 class="card-title text-center mb-4">Crear cuenta</h5>
-                <form @submit="createAccount">
+                <h3 class="card-title text-center mb-4">Crear cuenta</h3>
+                <form @submit.prevent="createuser(email, password, confirmPassword)">
                     <div class="mb-3">
                         <label for="email" class="form-label">Correo electrónico</label>
                         <input type="email" id="email" class="form-control" v-model="email" required>
@@ -25,6 +20,14 @@
                         <button type="submit" class="btn btn-primary">Crear cuenta</button>
                     </div>
                 </form>
+                <hr>
+                <div class="text-center mb-3">
+                    <button class="circle" style="border: 0;" @click="loginWithGoogle">
+                        <img src="https://rotulosmatesanz.com/wp-content/uploads/2017/09/2000px-Google_G_Logo.svg_.png"
+                            alt="Google Logo">
+                    </button>
+                    <p class="text-center">Crear cuenta con Google</p>
+                </div>
             </div>
         </div>
     </div>
@@ -32,18 +35,15 @@
   
 <script setup>
 import { ref } from 'vue';
+import { authApi } from '../../provider/api'
+const { createuser, loginWithGoogle } = authApi();
 
 const email = ref('');
 const password = ref('');
 const confirmPassword = ref('');
-
-const createAccount = () => {
-    // Lógica para crear la cuenta con el correo electrónico y contraseña proporcionados
-    // Aquí puedes integrar Firebase u otra solución de tu elección
-};
 </script>
   
-<style>
+<style scoped>
 .circle {
     display: flex;
     justify-content: center;
@@ -58,6 +58,10 @@ const createAccount = () => {
 .circle img {
     max-width: 80px;
     max-height: 80px;
+}
+
+.card {
+    width: 50%;
 }
 </style>
   

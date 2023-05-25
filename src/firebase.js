@@ -12,6 +12,7 @@ import { getDatabase } from "firebase/database";
 const firebaseConfig = {
     apiKey: "AIzaSyASLAhnrglX-KV31fyJ85rFEeA9Pdn_F20",
     authDomain: "starlightapi.firebaseapp.com",
+    databaseURL: "https://starlightapi-default-rtdb.firebaseio.com",
     projectId: "starlightapi",
     storageBucket: "starlightapi.appspot.com",
     messagingSenderId: "915759540224",
@@ -26,6 +27,7 @@ const analytics = getAnalytics(app);
 // Google auth
 const provider = new GoogleAuthProvider();
 const auth = getAuth(app);
+auth.useDeviceLanguage();
 const database = getDatabase(app);
 
 export { app, analytics, auth, provider, database };

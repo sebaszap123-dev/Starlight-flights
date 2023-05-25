@@ -6,18 +6,12 @@ import "bootstrap/dist/js/bootstrap.min";
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-
-/* import the fontawesome core */
-import { library } from '@fortawesome/fontawesome-svg-core'
-
-/* import specific icons */
-import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
-
-/* add icons to the library */
-library.add(faUserSecret)
+import { createPinia } from 'pinia'
 
 const app = createApp(App)
+const pinia = createPinia()
 
 app.use(router)
 
+app.use(pinia)
 app.mount('#app')

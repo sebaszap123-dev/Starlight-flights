@@ -18,21 +18,10 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      children: [
-        {
-          path: '',
-          name: 'sign_in',
-          component: SignIn,
-        },
-        {
-          path: 'dashboard',
-          name: 'Dashboard',
-          component: Dashboard
-        }
-      ]
+      component: SignIn,
     },
     {
-      path: '/signup',
+      path: '/sign_up',
       name: 'SignUp',
       component: SignUp
     },
@@ -40,6 +29,11 @@ const router = createRouter({
       path: '/verification',
       name: 'Verification',
       component: GetVerification
+    },
+    {
+      path: '/dashboard',
+      name: 'Dashboard',
+      component: Dashboard
     }
   ]
 })
