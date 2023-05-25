@@ -1,9 +1,6 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Tenth navbar example">
         <div class="container-fluid">
-            <div style="display: none;">
-                {{ console.log('Hola desde navbar actualizada') }}
-            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08"
                 aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -24,12 +21,24 @@
                             Vuelos
                         </RouterLink>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" v-if="user.user.userData">
+                        <RouterLink class="nav-link" to="/favorites" style="text-decoration: none;"><i
+                                class="fa-solid fa-heart"></i>
+                            Favoritos
+                        </RouterLink>
+                    </li>
+                    <li class="nav-item" v-if="user.user.userData && user.user.admin">
+                        <RouterLink class="nav-link" to="/dashboard" style="text-decoration: none;"><i
+                                class="fa-solid fa-gauge"></i>
+                            Dashboard
+                        </RouterLink>
+                    </li>
+                    <li class="nav-item" v-if="!user.user.userData">
                         <RouterLink class="nav-link" to="/login" style="text-decoration: none;"><i class="fas fa-user"></i>
                             Iniciar sesión
                         </RouterLink>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" v-if="!user.user.userData">
                         <RouterLink class="nav-link" to="/sign_up" style="text-decoration: none;">Haz tu cuenta
                         </RouterLink>
                     </li>
@@ -42,6 +51,8 @@
   
 <script setup>
 import { RouterLink } from "vue-router"
+import { useUser } from "../provider/services";
+const user = useUser()
 </script>
 
 <style scoped>

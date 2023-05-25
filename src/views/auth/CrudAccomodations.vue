@@ -20,9 +20,9 @@
 </template>
 
 <script setup>
-import AccomodationCard from "../components/AccomodationCard.vue"
 import { onMounted } from 'vue';
-import { apiStarlight } from '../provider/api'
+import AccomodationCard from '../../components/AccomodationCard.vue';
+import { apiStarlight } from '../../provider/api';
 const { accommodations, getAccommodations } = apiStarlight();
 onMounted(() => {
     getAccommodations()

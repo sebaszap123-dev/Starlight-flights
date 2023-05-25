@@ -34,7 +34,11 @@
                         <p class="info-text" style="padding-bottom: 10px;" v-if="cancellationPrice > 0">Cancelación a
                             ${{ $props.cancellationPrice }}</p>
                     </div>
-                    <button class="btn btn-color">Ver oferta</button>
+                    <a class="btn btn-color"
+                        href="https://www.booking.com/hotel/mx/gloden-crown-paradise.es.html?label=gen173nr-1BCAEoggI46AdIM1gEaKABiAEBmAEKuAEXyAEV2AEB6AEBiAIBqAIDuAKI3LyjBsACAdICJDBjNDc2M2RjLThmYjMtNGE4ZS05ZGZiLTg2YWQxZjQ2ZGZkN9gCBeACAQ&sid=ceb421e1b9de70304254f29cb0e54bc9&aid=304142&ucfs=1&arphpl=1&checkin=2023-05-28&checkout=2023-05-30&dest_id=-1690444&dest_type=city&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=1&hapos=1&sr_order=popularity&srpvid=1ea94487b4e70001&srepoch=1685007889&all_sr_blocks=712137001_0_2_21_0&highlighted_blocks=712137001_0_2_21_0&matching_block_id=712137001_0_2_21_0&sr_pri_blocks=712137001_0_2_21_0__722496&from=searchresults#hotelTmpl">Ver
+                        oferta</a>
+                    <button class="btn btn-danger" v-if="canDelete"
+                        @click.prevent="deleteAccommodation(id)">Eliminar</button>
                 </div>
             </div>
         </div>
@@ -42,6 +46,18 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+import { auth } from '../firebase';
+import { useUser } from '../provider/services';
+import { apiStarlight } from '../provider/api';
+
+const { deleteAccommodation } = apiStarlight()
+
+const user = useUser()
+
+const canDelete = computed(() => {
+    return auth.currentUser && user.user.userData && user.user.admin
+})
 
 const qualified = (puntuation: number): string => {
     if (puntuation >= 9.5) {
@@ -65,6 +81,10 @@ const image = (id: number) => {
 }
 
 defineProps({
+    id: {
+        type: String,
+        required: true,
+    },
     title: {
         type: String,
         default: "Hotel California",

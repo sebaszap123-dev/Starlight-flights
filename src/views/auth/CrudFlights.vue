@@ -20,8 +20,8 @@
 
 <script setup>
 import { onMounted } from 'vue';
-import { apiStarlight } from '../provider/api'
-import FlightsCard from '../components/FlightsCard.vue';
+import FlightsCard from '../../components/FlightsCard.vue';
+import { apiStarlight } from '../../provider/api';
 const { getFlights, flights } = apiStarlight();
 onMounted(() => {
     getFlights();
